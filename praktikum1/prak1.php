@@ -4,7 +4,7 @@
       case 'info':
         phpinfo(); 
         exit;
-      break;
+        break;
     }
   }
 ?>
