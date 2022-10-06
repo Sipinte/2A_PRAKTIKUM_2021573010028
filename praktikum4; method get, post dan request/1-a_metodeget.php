@@ -4,7 +4,7 @@
     </head>
     <body>
         <h1> Input</h1>
-        <form action="methodgetproses.php" method="get">
+        <form action="1-b_methodgetprocess.php" method="get">
             masukkan nama : <input type="text" name="nama" size="30">
             <input type ="submit" value="simpan">
         </form>
