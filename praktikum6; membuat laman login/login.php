@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!empty($_SESSION['username_xyz'])){
+    header("location:dashboard.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +22,7 @@
             <br>
 
             <input type="submit" value="login">
+            <a href="regist.php"> belum punya akun? daftar disini!</a>
     </form>
 
     
