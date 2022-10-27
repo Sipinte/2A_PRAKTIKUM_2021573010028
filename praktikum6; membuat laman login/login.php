@@ -20,11 +20,6 @@ if(!empty($_SESSION['username_xyz'])){
             <br>
             Password :  <input type="password" name="password">
             <br>
-
             <input type="submit" value="login">
             <a href="regist.php"> belum punya akun? daftar disini!</a>
-    </form>
-
-    
-</body>
-</html>
+    </form> </body></html>

@@ -9,12 +9,12 @@
     $no_hp = $_POST["no_hp"];
     
     if(empty($username) || empty ($password) || empty ($password2)){
-        echo '<script type ="text/JavaScript">';  
+         echo '<script type ="text/JavaScript">';  
          echo 'alert("masukkan username dan password")';  
          echo '</script>';
     }
     elseif ($password!=$password2){
-        echo '<script type ="text/JavaScript">';  
+         echo '<script type ="text/JavaScript">';  
          echo 'alert("harap masukkan password yang sesuai")';  
          echo '</script>';
     }else{

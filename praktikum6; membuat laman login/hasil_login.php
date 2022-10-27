@@ -11,8 +11,8 @@
         $query = mysqli_query($conn, "select * from mahasiswa where nama='$username' && password='$password'");
         $data = mysqli_fetch_array($query);
         if($data){
-            $_SESSION['username_xyz']
-        echo "selamat anda berhasil login";
+            $_SESSION['username_xyz'];
+            echo "selamat anda berhasil login";
              header("location:dashboard.php");
         }else{
             echo "<script>
