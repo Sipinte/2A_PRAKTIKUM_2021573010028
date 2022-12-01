@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 23, 2022 at 08:52 PM
+-- Generation Time: Nov 30, 2022 at 09:57 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.15
 
@@ -32,7 +32,7 @@ CREATE TABLE `tb_daftar_menu` (
   `foto` varchar(200) DEFAULT NULL,
   `nama_menu` varchar(200) DEFAULT NULL,
   `keterangan` varchar(200) DEFAULT NULL,
-  `kategori` varchar(50) DEFAULT NULL,
+  `kategori` int(10) DEFAULT NULL,
   `harga` varchar(15) DEFAULT NULL,
   `stok` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -42,12 +42,34 @@ CREATE TABLE `tb_daftar_menu` (
 --
 
 INSERT INTO `tb_daftar_menu` (`id`, `foto`, `nama_menu`, `keterangan`, `kategori`, `harga`, `stok`) VALUES
-(2, '1.png', 'Mie Aceh', 'asli aceh', 'kasir', '100000', '10'),
-(3, '2.png', 'Burger', 'burger keju dengan tambahan daging uganda', 'pelayan', '3000000', '20'),
-(4, '3.png', 'Kari Kambing', 'daging kambing', 'dapur', '400000', '30'),
-(19, '4.png', 'Kopi', 'ya es kopi', 'sfsdf', '50000', '40'),
-(20, '5.png', 'Es Timun serut', 'ini es timun', 'edit', '50000', '50'),
-(21, '6.png', 'Mie', 'ga tau ini apa pokoknya enak', 'admin', '50000', '60');
+(2, '58033-1.png', 'Mie Aceh', 'asli aceh', 1, '100000', '10'),
+(3, '2.png', 'Burger', 'burger keju dengan tambahan daging uganda', 1, '3000000', '20'),
+(4, '3.png', 'Kari Kambing', 'daging kambing', 2, '400000', '30'),
+(19, '4.png', 'Kopi', 'ya es kopi', 1, '50000', '40'),
+(20, '5.png', 'Es Timun serut', 'ini es timun', 2, '50000', '50'),
+(21, '6.png', 'Mie', 'ga tau ini apa pokoknya enak', 2, '50000', '60');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_kategori_menu`
+--
+
+CREATE TABLE `tb_kategori_menu` (
+  `id_kat_menu` int(10) NOT NULL,
+  `jenis_menu` int(10) DEFAULT NULL,
+  `kategori_menu` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_kategori_menu`
+--
+
+INSERT INTO `tb_kategori_menu` (`id_kat_menu`, `jenis_menu`, `kategori_menu`) VALUES
+(1, 1, 'Nasi'),
+(2, 1, 'Snack'),
+(3, 2, 'Jus'),
+(4, 2, 'Kopi');
 
 -- --------------------------------------------------------
 
@@ -85,7 +107,14 @@ INSERT INTO `tb_user` (`id`, `username`, `password`, `level`, `nama`, `nohp`, `a
 -- Indexes for table `tb_daftar_menu`
 --
 ALTER TABLE `tb_daftar_menu`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_tb_daftar_menu_tb_kategori_menu` (`kategori`);
+
+--
+-- Indexes for table `tb_kategori_menu`
+--
+ALTER TABLE `tb_kategori_menu`
+  ADD PRIMARY KEY (`id_kat_menu`);
 
 --
 -- Indexes for table `tb_user`
@@ -101,13 +130,29 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_daftar_menu`
 --
 ALTER TABLE `tb_daftar_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `tb_kategori_menu`
+--
+ALTER TABLE `tb_kategori_menu`
+  MODIFY `id_kat_menu` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tb_daftar_menu`
+--
+ALTER TABLE `tb_daftar_menu`
+  ADD CONSTRAINT `FK_tb_daftar_menu_tb_kategori_menu` FOREIGN KEY (`kategori`) REFERENCES `tb_kategori_menu` (`id_kat_menu`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

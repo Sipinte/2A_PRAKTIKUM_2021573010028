@@ -1,7 +1,8 @@
 <?php
-if(!empty($_SESSION['username_inicafe'])){
-    header('location:home');
-}
+    //session_start();
+    if (!empty($_SESSION['username_cafe'])) {
+        header('location:home');
+    }
 ?>
 <!doctype html>
 <html lang="en">
@@ -12,12 +13,14 @@ if(!empty($_SESSION['username_inicafe'])){
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>IniCafe · Aplikasi Pemesanan Makanan dan Minuman</title>
+    <title>Ini Cafe- Aplikasi Pemesanan Makanan dan Minuman Cafe</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
     <style>
     .bd-placeholder-img {
         font-size: 1.125rem;
@@ -71,31 +74,31 @@ if(!empty($_SESSION['username_inicafe'])){
     }
     </style>
 
-
     <!-- Custom styles for this template -->
-    <link href="./assets/css/login.css" rel="stylesheet">
+    <link href="assets/css/login.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
 
     <main class="form-signin w-100 m-auto">
-        <form class="needs-validation" novalidate action="proses/proses_login.php" method="post">
+        <form class="needs-validation" novalidate action="proses/proses_login.php" method="POST">
             <i class="bi bi-cup-hot fs-1"></i>
             <h1 class="h3 mb-3 fw-normal">Please Login</h1>
+
             <div class="form-floating">
-                <input type="email" name="username" class="form-control" id="floatingInput"
+                <input name="username" type="email" class="form-control" id="floatingInput"
                     placeholder="name@example.com" required>
                 <label for="floatingInput">Email address</label>
                 <div class="invalid-feedback">
-                    Masukkan email yang valid.
+                    Masukkan Email yang Valid
                 </div>
             </div>
             <div class="form-floating">
-                <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password"
+                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password"
                     required>
                 <label for="floatingPassword">Password</label>
                 <div class="invalid-feedback">
-                    Masukkan password.
+                    Masukkan Password
                 </div>
             </div>
 
@@ -105,7 +108,7 @@ if(!empty($_SESSION['username_inicafe'])){
                 </label>
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit_validate" value="abc">Login</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2021–2022</p>
+            <p class="mt-5 mb-3 text-muted">&copy; 2022-2023</p>
         </form>
     </main>
 
@@ -130,7 +133,6 @@ if(!empty($_SESSION['username_inicafe'])){
         })
     })()
     </script>
-
 
 </body>
 
